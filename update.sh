@@ -488,23 +488,6 @@ boot() {
 EOF
     chmod +x "$sh_dir/custom_task"
 }
-
-# 应用 Passwall 相关调整
-apply_passwall_tweaks() {
-    # 清理 Passwall 的 chnlist 规则文件
-    local chnlist_path="$BUILD_DIR/feeds/small8/luci-app-passwall/root/usr/share/passwall/rules/chnlist"
-    if [ -f "$chnlist_path" ]; then
-        > "$chnlist_path"
-    fi
-
-    # 调整 Xray 最大 RTT 和 保留记录数量
-    local xray_util_path="$BUILD_DIR/feeds/small8/luci-app-passwall/luasrc/passwall/util_xray.lua"
-    if [ -f "$xray_util_path" ]; then
-        sed -i 's/maxRTT = "1s"/maxRTT = "2s"/g' "$xray_util_path"
-        sed -i 's/sampling = 3/sampling = 5/g' "$xray_util_path"
-    fi
-}
-
 install_opkg_distfeeds() {
     local emortal_def_dir="$BUILD_DIR/package/emortal/default-settings"
     local distfeeds_conf="$emortal_def_dir/files/99-distfeeds.conf"
