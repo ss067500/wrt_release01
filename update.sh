@@ -91,6 +91,7 @@ update_feeds() {
         # 确保文件以换行符结尾
         [ -z "$(tail -c 1 "$FEEDS_PATH")" ] || echo "" >>"$FEEDS_PATH"
         echo "src-git small8 https://github.com/kenzok8/small-package" >>"$FEEDS_PATH"
+		echo "src-git smpackage https://github.com/kenzok8/small-package" >>"$FEEDS_PATH"
     fi
 
     # 添加bpf.mk解决更新报错
