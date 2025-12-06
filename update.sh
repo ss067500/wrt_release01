@@ -445,7 +445,7 @@ change_cpuusage() {
     fi
 }
 
-/* update_tcping() {
+update_tcping() {
     local tcping_path="$BUILD_DIR/feeds/small8/tcping/Makefile"
     local url="https://raw.githubusercontent.com/xiaorouji/openwrt-passwall-packages/refs/heads/main/tcping/Makefile"
 
@@ -457,7 +457,7 @@ change_cpuusage() {
         fi
     fi
 }
-*/
+
 set_custom_task() {
     local sh_dir="$BUILD_DIR/package/base-files/files/etc/init.d"
     cat <<'EOF' >"$sh_dir/custom_task"
