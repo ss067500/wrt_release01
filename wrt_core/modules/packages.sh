@@ -76,8 +76,7 @@ install_small8() {
         v2dat mosdns luci-app-mosdns adguardhome luci-app-adguardhome ddns-go \
         luci-app-ddns-go taskd luci-lib-xterm luci-lib-taskd luci-app-store quickstart \
         luci-app-quickstart luci-app-istorex luci-app-cloudflarespeedtest netdata luci-app-netdata \
-        lucky luci-app-lucky luci-app-openclash luci-app-homeproxy luci-app-amlogic nikki luci-app-nikki \
-        tailscale luci-app-tailscale oaf open-app-filter luci-app-oaf easytier luci-app-easytier \
+        lucky luci-app-lucky luci-app-openclash luci-app-homeproxy luci-app-amlogic nikki luci-app-nikki oaf open-app-filter luci-app-oaf  \
         msd_lite luci-app-msd_lite cups luci-app-cupsd
 }
 
@@ -152,29 +151,7 @@ update_homeproxy() {
     fi
 }
 
-add_timecontrol() {
-    local timecontrol_dir="$BUILD_DIR/package/luci-app-timecontrol"
-    local repo_url="https://github.com/sirpdboy/luci-app-timecontrol.git"
-    rm -rf "$timecontrol_dir" 2>/dev/null
-    echo "正在添加 luci-app-timecontrol..."
-    if ! git clone --depth 1 "$repo_url" "$timecontrol_dir"; then
-        echo "错误：从 $repo_url 克隆 luci-app-timecontrol 仓库失败" >&2
-        exit 1
-    fi
-}
 
-update_adguardhome() {
-    local adguardhome_dir="$BUILD_DIR/package/feeds/small8/luci-app-adguardhome"
-    local repo_url="https://github.com/ZqinKing/luci-app-adguardhome.git"
-
-    echo "正在更新 luci-app-adguardhome..."
-    rm -rf "$adguardhome_dir" 2>/dev/null
-
-    if ! git clone --depth 1 "$repo_url" "$adguardhome_dir"; then
-        echo "错误：从 $repo_url 克隆 luci-app-adguardhome 仓库失败" >&2
-        exit 1
-    fi
-}
 
 update_lucky() {
     local lucky_repo_url="https://github.com/gdy666/luci-app-lucky.git"
